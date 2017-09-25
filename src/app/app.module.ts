@@ -12,6 +12,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // App components
 import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SearchComponent } from './components/search/search.component';
 // App reducers
@@ -25,6 +26,7 @@ import { SearchService } from './common/services';
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     NavbarComponent,
     SearchComponent,
   ],
