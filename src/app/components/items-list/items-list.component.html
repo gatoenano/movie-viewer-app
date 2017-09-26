@@ -1,0 +1,7 @@
+<ng-container *ngIf="list">
+  <ul class="list-group">
+    <li *ngFor="let item of list.rootReducer.search.movies"
+      (click)="selected.emit(item.id)"
+      class="list-group-item list-group-item-action">{{ item.title }}</li>
+  </ul>
+</ng-container>

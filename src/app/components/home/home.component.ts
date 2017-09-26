@@ -10,21 +10,26 @@ import { IMovies } from '../../common/models/movies.model';
 import * as reducer from '../../common/reducers/search.reducer';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class HomeComponent implements OnInit {
   // data from store
-  movies$: Observable<reducer.State>;
+  list$: Observable<reducer.State>;
 
   constructor(private store: Store<reducer.State>) {
     // subscribe to data
-    this.movies$ = store.select(reducer.getSearchState);
+    this.list$ = store.select(reducer.getSearchState);
   }
 
   ngOnInit() {
-    console.log('NavbarComponent loaded');
+    console.log('Home component loaded');
+  }
+
+  // selected movie id
+  setCurrentMovie(movieId): void {
+    console.log('setCurrentMovie movieId: ', movieId);
   }
 
 }
