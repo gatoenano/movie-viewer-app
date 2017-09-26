@@ -1,27 +1,29 @@
-// Core modules
+// Core
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
-// App Routes
+// routes
 import { APP_ROUTING } from './app.routes';
-// ngrx modules
+// ngrx
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-// Modules
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// App components
-import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { SearchComponent } from './components/search/search.component';
-// App reducers
-// import { reducer } from './common/reducers';
-import { reducer } from './common/reducers/search.reducer';
-// App effects
+// reducers
+import { reducer } from './common/reducers';
+// effects
 import { SearchEffects } from './common/effects';
-// App services
+// services
 import { SearchService } from './common/services';
+// modules
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// components
+import { AppComponent } from './app.component';
+import {
+  HomeComponent,
+  NavbarComponent,
+  SearchComponent,
+  ItemsListComponent
+ } from './components';
 
 @NgModule({
   declarations: [
@@ -29,11 +31,12 @@ import { SearchService } from './common/services';
     HomeComponent,
     NavbarComponent,
     SearchComponent,
+    ItemsListComponent,
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    StoreModule.forRoot({search : reducer}),
+    StoreModule.forRoot({ rootReducer: reducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),   //  Retains last 25 states
     EffectsModule.forRoot([SearchEffects]),
     NgbModule.forRoot(),
