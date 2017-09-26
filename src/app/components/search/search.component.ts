@@ -38,8 +38,10 @@ export class SearchComponent implements OnInit {
       .debounceTime(500)
       .distinctUntilChanged()
       .subscribe((text: string) => {
-        console.log('search: ', text);
-        this.store.dispatch(new searchActions.Search({text}));
+        console.log('SearchComponent searched text: ', text);
+        if (text) {
+          this.store.dispatch(new searchActions.Search({ text }));
+        }
       });
   }
 }
