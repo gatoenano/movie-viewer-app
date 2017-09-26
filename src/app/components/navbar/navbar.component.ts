@@ -6,8 +6,6 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Rx';
 // models
 import { IMovies } from '../../common/models/movies.model';
-// actions
-import * as searchActions from '../../common/actions/search.actions';
 // reducers
 import * as reducer from '../../common/reducers/search.reducer';
 
@@ -18,7 +16,7 @@ import * as reducer from '../../common/reducers/search.reducer';
 })
 export class NavbarComponent implements OnInit {
   // data from store
-  movies$: Observable<any>;
+  movies$: Observable<reducer.State>;
 
   constructor(private store: Store<reducer.State>) {
     // subscribe to data
