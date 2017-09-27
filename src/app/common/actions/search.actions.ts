@@ -48,4 +48,5 @@ export class ClearSearch implements Action {
 export type Actions
   = Search
   | SearchSuccess
+  | SearchFail
   | ClearSearch;

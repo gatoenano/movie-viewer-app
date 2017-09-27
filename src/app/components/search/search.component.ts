@@ -4,8 +4,6 @@ import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 // rxjs
 import { Observable } from 'rxjs/Rx';
-// models
-import { IMovies } from '../../common/models/movies.model';
 // actions
 import * as searchActions from '../../common/actions/search.actions';
 // reducers
@@ -17,8 +15,6 @@ import * as reducer from '../../common/reducers/search.reducer';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  // input to get the movies
-  @Input() movies: IMovies;
 
   constructor(
     private el: ElementRef,
@@ -27,11 +23,11 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('SearchComponent loaded');
-    // initialize the listener for the searched text
+    // initialize the listener for the typed text
     this.search();
   }
 
-  // Gets the typed text in the search box
+  // Gets the searched text in the search box
   search(): void {
     Observable.fromEvent(this.el.nativeElement, 'keyup')
       .map((e: any) => e.target.value)

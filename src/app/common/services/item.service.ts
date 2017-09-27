@@ -2,11 +2,11 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 // constants
-import { ENDPOINT_URI, FILTER_POPULARITY, API_KEY } from '../constants';
+import { ENDPOINT_URI, API_KEY } from '../constants';
 
 @Injectable()
-export class SearchService {
-  path = 'search/movie?';
+export class ItemService {
+  path = 'movie/';
 
   constructor(private http: Http) { }
 
@@ -19,9 +19,9 @@ export class SearchService {
       .map(res => res.json());
   }
 
-  search(searchCriteria) {
-    console.log('SERVICE SearchService searchCriteria: ', searchCriteria);
-    return this.http.get(`${this.url}query=${searchCriteria.payload.text}${FILTER_POPULARITY}${API_KEY}`)
+  item(item) {
+    console.log('SERVICE ItemService item: ', item);
+    return this.http.get(`${this.url}${item.payload}?${API_KEY}`)
       .map(res => res.json())
       .catch(error => { throw (error); });
   }
