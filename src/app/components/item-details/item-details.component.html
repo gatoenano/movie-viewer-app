@@ -1,20 +1,38 @@
 <ng-container *ngIf="item.rootReducer.item.movie">
   <div class="row animated fast fadeIn">
     <div class="col-4">
-      <img src="{{imageUri}}{{item.rootReducer.item.movie?.poster_path}}" alt="" class="img-thumbnail">
+      <img src="{{imageUri}}{{item.rootReducer.item.movie?.poster_path}}" alt="" class="img-thumbnail mb-4">
+      <div>
+        <ng-container *ngIf="item.rootReducer.item.movie.production_countries.length">
+          <ul class="pl-0 mb-3">
+            <strong>Production countries</strong>
+            <li *ngFor="let item of item.rootReducer.item.movie.production_countries"><small>{{ item.name }}</small></li>
+          </ul>
+        </ng-container>
+        <ng-container *ngIf="item.rootReducer.item.movie.budget">
+          <strong>Budget</strong>
+          <p class="mb-3">{{item.rootReducer.item.movie.budget | currency }}</p>
+        </ng-container>
+        <ng-container *ngIf="item.rootReducer.item.movie.homepage">
+          <strong>Url</strong>
+          <a href="{{item.rootReducer.item.movie.homepage}}">{{item.rootReducer.item.movie.homepage}}</a>
+        </ng-container>
+      </div>
     </div>
     <div class="col-8">
       <h2>{{item.rootReducer.item.movie?.title}}</h2>
       <small>{{item.rootReducer.item.movie?.tagline}}</small>
       <hr>
       <p>{{item.rootReducer.item.movie?.overview}}</p>
-      <ngb-rating
-        [rate]="item.rootReducer.item.movie?.vote_average"
-        [readonly]="true">
-        <ng-template let-fill="fill">
-          <span class="star" [class.filled]="fill === 100">&#9733;</span>
-        </ng-template>
-      </ngb-rating>
+      <div class="text-right">
+        <ngb-rating
+          [rate]="item.rootReducer.item.movie?.vote_average"
+          [readonly]="true">
+          <ng-template let-fill="fill">
+            <span class="star" [class.filled]="fill === 100">&#9733;</span>
+          </ng-template>
+        </ngb-rating>
+      </div>
     </div>
   </div>
 </ng-container>

@@ -14,12 +14,15 @@ export class ItemsListComponent implements OnInit {
   // event of the selected movie
   @Output() selected = new EventEmitter<number>();
 
-  active: Array<boolean> = [];
+  selectedIndex: number;
 
   constructor() { }
 
   ngOnInit(): void {
     console.log('ItemsListComponent loaded');
   }
-
+  // set element to active state
+  active(index: number) {
+    this.selectedIndex = index;
+  }
 }
