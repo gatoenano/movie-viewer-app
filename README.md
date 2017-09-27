@@ -2,8 +2,8 @@
 
 This is a Movie Viewer application to see information from movies using the API of "The Movie Database" site. It is made with web technologies like NodeJS, Angular 4 + CLI, TypeScript, RxJS, Bootstrap 4, NPM, Redux pattern (ngrx) and Webpack, using the Visual Code Studio IDE. [Demo live version](https://movie-viewer-app.herokuapp.com/).
 
-<img src="https://user-images.githubusercontent.com/2183987/30929107-c13b456e-a3bd-11e7-98e4-49e7a241828c.png" width="60%"></img>
-<img src="https://user-images.githubusercontent.com/2183987/30929121-cc37c4a6-a3bd-11e7-9572-bb42be42748b.png" width="35%"></img>
+<img src="https://user-images.githubusercontent.com/2183987/30929107-c13b456e-a3bd-11e7-98e4-49e7a241828c.png" width="60%">
+<img src="https://user-images.githubusercontent.com/2183987/30929121-cc37c4a6-a3bd-11e7-9572-bb42be42748b.png" width="35%">
 
 
 ## Getting Started
