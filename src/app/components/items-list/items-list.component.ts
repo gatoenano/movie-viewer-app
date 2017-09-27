@@ -13,9 +13,13 @@ export class ItemsListComponent implements OnInit {
   @Input() list: IMovies;
   // event of the selected movie
   @Output() selected = new EventEmitter<number>();
+
+  active: Array<boolean> = [];
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    console.log('ItemsListComponent loaded');
   }
 
 }

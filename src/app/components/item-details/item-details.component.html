@@ -1,0 +1,20 @@
+<ng-container *ngIf="item.rootReducer.item.movie">
+  <div class="row animated fast fadeIn">
+    <div class="col-4">
+      <img src="{{imageUri}}{{item.rootReducer.item.movie?.poster_path}}" alt="" class="img-thumbnail">
+    </div>
+    <div class="col-8">
+      <h2>{{item.rootReducer.item.movie?.title}}</h2>
+      <small>{{item.rootReducer.item.movie?.tagline}}</small>
+      <hr>
+      <p>{{item.rootReducer.item.movie?.overview}}</p>
+      <ngb-rating
+        [rate]="item.rootReducer.item.movie?.vote_average"
+        [readonly]="true">
+        <ng-template let-fill="fill">
+          <span class="star" [class.filled]="fill === 100">&#9733;</span>
+        </ng-template>
+      </ngb-rating>
+    </div>
+  </div>
+</ng-container>

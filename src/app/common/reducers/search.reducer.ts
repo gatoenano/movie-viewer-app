@@ -1,6 +1,5 @@
 // core
 import { ActionReducer, Action } from '@ngrx/store';
-import { SearchComponent } from '../../components/search/search.component';
 // rxjs
 import { Observable } from 'rxjs/Rx';
 // models
@@ -11,13 +10,13 @@ import * as search from '../actions/search.actions';
 
 export interface State {
   text: ICurrentSearch;
-  movies?: IMovies[];
+  movies?: IMovies;
   error?: any;
 }
 
 export const initialState: State = {
   text: null,
-  movies: [],
+  movies: null,
   error: null
 };
 

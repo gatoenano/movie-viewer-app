@@ -6,8 +6,11 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Rx';
 // models
 import { IMovies } from '../../common/models/movies.model';
+// actions
+import * as itemActions from '../../common/actions/item.actions';
 // reducers
-import * as reducer from '../../common/reducers/search.reducer';
+import * as searchReducer from '../../common/reducers/search.reducer';
+import * as itemReducer from '../../common/reducers/item.reducer';
 
 @Component({
   selector: 'app-home',
@@ -16,20 +19,28 @@ import * as reducer from '../../common/reducers/search.reducer';
 })
 export class HomeComponent implements OnInit {
   // data from store
-  list$: Observable<reducer.State>;
+  list$: Observable<searchReducer.State>;
+  item$: Observable<itemReducer.State>;
 
-  constructor(private store: Store<reducer.State>) {
+  constructor(
+    private searchStore: Store<searchReducer.State>,
+    private itemStore: Store<itemReducer.State>
+  ) {
     // subscribe to data
-    this.list$ = store.select(reducer.getSearchState);
+    this.list$ = searchStore.select(searchReducer.getSearchState);
+    this.item$ = itemStore.select(itemReducer.getItemState);
   }
 
-  ngOnInit() {
-    console.log('Home component loaded');
+  ngOnInit(): void {
+    console.log('HomeComponent loaded');
   }
 
-  // selected movie id
-  setCurrentMovie(movieId): void {
-    console.log('setCurrentMovie movieId: ', movieId);
+  // selected item id
+  showItemDetails(itemId: number): void {
+    console.log('HomeComponent showItemDetails itemId: ', itemId);
+    if (itemId) {
+      this.itemStore.dispatch(new itemActions.GetItem(itemId));
+    }
   }
 
 }

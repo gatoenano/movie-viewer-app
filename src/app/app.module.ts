@@ -8,12 +8,14 @@ import { APP_ROUTING } from './app.routes';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+// modules
+import { RatingModule } from 'ngx-rating';
 // reducers
 import { reducer } from './common/reducers';
 // effects
-import { SearchEffects } from './common/effects';
+import { SearchEffects, ItemEffects } from './common/effects';
 // services
-import { SearchService } from './common/services';
+import { SearchService, ItemService } from './common/services';
 // modules
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // components
@@ -22,7 +24,8 @@ import {
   HomeComponent,
   NavbarComponent,
   SearchComponent,
-  ItemsListComponent
+  ItemsListComponent,
+  ItemDetailsComponent
  } from './components';
 
 @NgModule({
@@ -32,18 +35,21 @@ import {
     NavbarComponent,
     SearchComponent,
     ItemsListComponent,
+    ItemDetailsComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     StoreModule.forRoot({ rootReducer: reducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25 }),   //  Retains last 25 states
-    EffectsModule.forRoot([SearchEffects]),
+    EffectsModule.forRoot([SearchEffects, ItemEffects]),
     NgbModule.forRoot(),
+    RatingModule,
     APP_ROUTING
   ],
   providers: [
     SearchService,
+    ItemService,
     { provide: LOCALE_ID, useValue: 'en-Us' }
   ],
   bootstrap: [AppComponent]

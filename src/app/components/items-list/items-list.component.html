@@ -1,7 +1,8 @@
 <ng-container *ngIf="list">
   <ul class="list-group">
-    <li *ngFor="let item of list.rootReducer.search.movies"
-      (click)="selected.emit(item.id)"
-      class="list-group-item list-group-item-action">{{ item.title }}</li>
+    <li *ngFor="let item of list.rootReducer.search.movies, let i = index"
+      (click)="selected.emit(item.id); active[i]=!active[i]"
+      [ngClass]="{active: active[i]}"
+      class="list-group-item list-group-item-action animated fast fadeIn">{{ item.title }}</li>
   </ul>
 </ng-container>
