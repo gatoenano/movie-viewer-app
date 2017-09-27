@@ -28,15 +28,8 @@
   animation-name: fadeIn;
 }
 
-/* Utils */
 .pointer {
   cursor: pointer;
-}
-
-app-items-list {
-  li.active {
-    pointer-events: none;
-  }
 }
 
 app-home {
@@ -46,6 +39,19 @@ app-home {
     }
   }
 }
+
+app-items-list {
+  li.active {
+    pointer-events: none;
+  }
+}
+
+app-item-details {
+  li {
+    list-style-type: none;
+  }
+}
+
 
 ngb-rating {
   outline: none;
