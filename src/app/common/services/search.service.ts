@@ -19,7 +19,7 @@ export class SearchService {
       .map(res => res.json());
   }
 
-  search(searchCriteria) {
+  search(searchCriteria: any) {
     console.log('SERVICE SearchService searchCriteria: ', searchCriteria);
     return this.http.get(`${this.url}query=${searchCriteria.payload.text}${FILTER_POPULARITY}${API_KEY}`)
       .map(res => res.json())
