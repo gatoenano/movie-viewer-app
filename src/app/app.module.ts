@@ -8,8 +8,6 @@ import { APP_ROUTING } from './app.routes';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-// modules
-import { RatingModule } from 'ngx-rating';
 // reducers
 import { reducer } from './common/reducers';
 // effects
@@ -44,7 +42,6 @@ import {
     StoreDevtoolsModule.instrument({ maxAge: 25 }),   //  Retains last 25 states
     EffectsModule.forRoot([SearchEffects, ItemEffects]),
     NgbModule.forRoot(),
-    RatingModule,
     APP_ROUTING
   ],
   providers: [
