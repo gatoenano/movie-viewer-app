@@ -100,10 +100,6 @@ MIT
 MIT
 MIT
 
-ngx-rating@0.0.9
-MIT
-MIT
-
 @ngrx/store@4.0.3
 MIT
 The MIT License (MIT)
