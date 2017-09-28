@@ -19,7 +19,7 @@ export class ItemService {
       .map(res => res.json());
   }
 
-  item(item) {
+  item(item: any) {
     console.log('SERVICE ItemService item: ', item);
     return this.http.get(`${this.url}${item.payload}?${API_KEY}`)
       .map(res => res.json())
